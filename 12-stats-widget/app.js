@@ -32,12 +32,6 @@ search.addWidget(
 );
 
 search.addWidget(
-  instantsearch.widgets.configure({
-    hitsPerPage: 2
-  })
-);
-
-search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#brands",
     attributeName: "brand",
