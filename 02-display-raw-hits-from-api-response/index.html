@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Raw Hits</title>
+	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+</head>
+
+<body>
+	<div id="app"></div>
+	<script>
+		const client = algoliasearch('latency', 'b37781ea260eea196da5b3346d5ff4c9');
+		const index = client.initIndex('instant_search');
+		index.search("").then(result => {
+			const hits = result.hits.map(hit => `<p>${hit.name}</p>`);
+			app.innerHTML = hits.join("");
+		});
+	</script>
+</body>
+
+</html>
