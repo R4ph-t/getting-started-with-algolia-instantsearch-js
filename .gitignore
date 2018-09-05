@@ -1,1 +1,22 @@
 /.DS_Store
+/04-add-widgets-and-params/.vscode
+.vscode
+.DS_Store
+/04-add-widgets-and-params/.DS_Store
+/07-highlighting-keywords-hits-widget/.DS_Store
+/09-hierarchical-menu-widget/.DS_Store
+/02-display-raw-hits-from-api-response/.DS_Store
+/10-numeric-range-widget/.DS_Store
+/03-set-up-the-instantsearch-js-library/.DS_Store
+/06-templating-hits-widget/.DS_Store
+/05-search-index-with-searchbox-and-hits-widgets/.DS_Store
+/finished/.DS_Store
+/finished/05-search-index-with-searchbox-and-hits-widgets copy/.DS_Store
+/finished/07-highlighting-keywords-hits-widget copy/.DS_Store
+/finished/09-hierarchical-menu-widget copy/.DS_Store
+/finished/10-numeric-range-widget copy/.DS_Store
+/finished/08-refinement-list-widget copy/.DS_Store
+/finished/03-set-up-the-instantsearch-js-library copy/.DS_Store
+/finished/02-display-raw-hits-from-api-response copy/.DS_Store
+/finished/04-add-widgets-and-params copy/.DS_Store
+/finished/06-templating-hits-widget copy/.DS_Store
