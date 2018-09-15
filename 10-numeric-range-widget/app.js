@@ -7,7 +7,7 @@ const search = instantsearch({
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: "#searchbox",
-    placeholder: "Search for products"
+    placeholder: "Search for products, brands or categories"
   })
 );
 
@@ -56,14 +56,6 @@ search.addWidget(
   })
 );
 
-search.addWidget(
-  instantsearch.widgets.rangeInput({
-    container: "#price",
-    attributeName: "price",
-    templates: {
-      header: "Price"
-    }
-  })
-);
+// add widget
 
 search.start();

@@ -3,17 +3,23 @@
 
 <head>
 	<title>Raw Hits</title>
+	<!-- import algolia JS client here -->
 	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 </head>
 
 <body>
+	<div id="app"></div>
+	<!-- script goes here -->
 	<script>
-		const client = algoliasearch('latency', 'b37781ea260eea196da5b3346d5ff4c9');
-		const index = client.initIndex('instant_search');
-		index.search("").then(result => {
-			const hits = result.hits.map(hit => `<p>${hit.name}</p>`);
+		const app = document.getElementById("app");
+		const algolia = algoliasearch("latency", "b37781ea260eea196da5b3346d5ff4c9");
+		const index = algolia.initIndex("instant_search");
+
+		index.search("").then(results => {
+			console.log(results);
+			const hits = results.hits.map(hit => `<p>${hit.name}</p>`);
 			app.innerHTML = hits.join("");
-		});
+		})
 	</script>
 </body>
 

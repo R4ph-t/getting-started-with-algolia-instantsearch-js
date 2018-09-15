@@ -7,7 +7,7 @@ const search = instantsearch({
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: "#searchbox",
-    placeholder: "Search for products"
+    placeholder: "Search for products, brands or categories"
   })
 );
 
@@ -26,7 +26,8 @@ search.addWidget(
         </div>
         <p>${data._highlightResult.description.value}</p>
       </div>
-    `
+    `,
+      empty: "<h1>No results... please consider another query</h1>"
     }
   })
 );

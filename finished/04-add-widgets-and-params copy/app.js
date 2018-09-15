@@ -5,8 +5,17 @@ const search = instantsearch({
 });
 
 search.addWidget(
-  instantsearch.widgets.hits({
-    container: "#my-widget"
+  instantsearch.widgets.menu({
+    container: "#test-widget",
+    attributeName: "type",
+    templates: {
+      header: "Type",
+      item: "{{elipsis}}"
+    },
+    transformData: item => {
+      item.elipsis = `${item.value.slice(0, 5)} ...`;
+      return item;
+    }
   })
 );
 

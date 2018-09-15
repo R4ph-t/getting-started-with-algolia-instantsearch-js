@@ -7,8 +7,7 @@ const search = instantsearch({
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: "#searchbox",
-    autofocus: false,
-    placeholder: "Search for products"
+    placeholder: "Search for products, brands or categories"
   })
 );
 
