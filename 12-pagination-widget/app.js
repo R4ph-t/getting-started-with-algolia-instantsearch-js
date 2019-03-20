@@ -1,7 +1,11 @@
+const searchClient = algoliasearch(
+  "latency",
+  "b37781ea260eea196da5b3346d5ff4c9"
+);
+
 const search = instantsearch({
-  appId: "latency",
-  apiKey: "b37781ea260eea196da5b3346d5ff4c9",
-  indexName: "instant_search"
+  indexName: "instant_search",
+  searchClient
 });
 
 search.addWidget(
@@ -16,17 +20,22 @@ search.addWidget(
     container: "#hits",
     templates: {
       item: data => `
-      <img src="${data.image}" /> 
-      <div>
-        <div class="hit-title">
-          <h4>
-            ${data._highlightResult.name.value}
-          </h4> 
-          <div class="price">$${data.price}</div>
-        </div>
-        <p>${data._highlightResult.description.value}</p>
+      <img src="${data.image}"/>
+        <div>
+          <div class="hit-title">
+            <h4>${instantsearch.highlight({
+              attribute: "name",
+              hit: data
+            })}</h4>
+            <div class="price">$${data.price}</div>
+          </div>
+        <p>${instantsearch.highlight({
+          attribute: "description",
+          hit: data
+        })}</p>
       </div>
-    `
+      `,
+      empty: "<h1>No results... please consider another query</h1>"
     }
   })
 );
@@ -34,11 +43,9 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: "#brands",
-    attributeName: "brand",
-    searchForFacetValues: { placeholder: "Search brands" },
-    templates: {
-      header: "Brands"
-    }
+    attribute: "brand",
+    searchable: true,
+    searchablePlaceholder: "Search for brands"
   })
 );
 
@@ -49,29 +56,20 @@ search.addWidget(
       "hierarchicalCategories.lvl0",
       "hierarchicalCategories.lvl1",
       "hierarchicalCategories.lvl2"
-    ],
-    templates: {
-      header: "Categories"
-    }
+    ]
   })
 );
 
 search.addWidget(
   instantsearch.widgets.rangeInput({
     container: "#price",
-    attributeName: "price",
-    templates: {
-      header: "Price"
-    }
+    attribute: "price"
   })
 );
 
 search.addWidget(
-  instantsearch.widgets.clearAll({
-    container: "#clear-all",
-    templates: {
-      link: "Reset everything"
-    }
+  instantsearch.widgets.clearRefinements({
+    container: "#clear-all"
   })
 );
 

@@ -1,32 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>InstantSearch for Vanilla JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.32.0/dist/algoliasearchLite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.1.1/dist/instantsearch.production.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/reset-min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-<head>
-	<title>InstantSearch for Vanilla JS</title>
-	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.9.0"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.9.0/dist/instantsearch.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <body>
+    <header>
+      <div id="searchbox"></div>
+    </header>
 
-<body>
-	<header>
-		<div id="searchbox"></div>
-	</header>
+    <main>
+      <div id="left-column">
+        <div id="clear-all"></div>
+        <h5 class="filter-title">Brands</h5>
+        <div class="filter-widgets" id="brands"></div>
+        <h5 class="filter-title">Categories</h5>
+        <div class="filter-widgets" id="categories"></div>
+        <h5 class="filter-title">Price</h5>
+        <div class="filter-widgets" id="price"></div>
+      </div>
+      <div id="right-column">
+        <div id="hits"></div>
+        <div id="pagination"></div>
+      </div>
+    </main>
 
-	<main>
-		<div id="left-column">
-			<div id="clear-all"></div>
-			<div class="filter-widgets" id="brands"></div>
-			<div class="filter-widgets" id="categories"></div>
-			<div class="filter-widgets" id="price"></div>
-		</div>
-		<div id="right-column">
-			<div id="hits"></div>
-			<div id="pagination"></div>
-		</div>
-	</main>
-
-	<script src="app.js"></script>
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>

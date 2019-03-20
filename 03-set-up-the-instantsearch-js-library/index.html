@@ -1,17 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>InstantSearch for Vanilla JS</title>
+    <!-- import algolia search here -->
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.32.0/dist/algoliasearchLite.min.js"></script>
 
-<head>
-	<title>InstantSearch for Vanilla JS</title>
-	<!-- import algolia Instant JS library here -->
+    <!-- import algolia Instant JS library here -->
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.1.1/dist/instantsearch.production.min.js"></script>
 
-	<!-- import algolia Instant JS CSS styling here -->
+    <!-- import algolia Instant JS CSS styling here -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/reset-min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-	<script src="app.js"></script>
-</body>
-
+  <body>
+    <script src="app.js"></script>
+  </body>
 </html>

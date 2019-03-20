@@ -1,7 +1,11 @@
+const searchClient = algoliasearch(
+  "latency",
+  "b37781ea260eea196da5b3346d5ff4c9"
+);
+
 const search = instantsearch({
-  appId: "latency",
-  apiKey: "b37781ea260eea196da5b3346d5ff4c9",
-  indexName: "instant_search"
+  indexName: "instant_search",
+  searchClient
 });
 
 search.addWidget(
@@ -19,12 +23,19 @@ search.addWidget(
       <img src="${data.image}"/>
         <div>
           <div class="hit-title">
-            <h4>${data.name}</h4>
+            <h4>${instantsearch.highlight({
+              attribute: "name",
+              hit: data
+            })}</h4>
             <div class="price">$${data.price}</div>
           </div>
-        <p>${data.description}</p>
+        <p>${instantsearch.highlight({
+          attribute: "description",
+          hit: data
+        })}</p>
       </div>
-      `
+      `,
+      empty: "<h1>No results... please consider another query</h1>"
     }
   })
 );
